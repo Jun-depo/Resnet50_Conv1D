@@ -189,8 +189,11 @@ def ResNet50(input_shape = (30000, 1), n_out=1):
     X = Dense(n_out, name='fc-dense', kernel_initializer = glorot_uniform(seed=0), 
               kernel_regularizer=regularizers.l2(0.2), bias_regularizer=regularizers.l2(0.2))(X)
     
-    # for classification, if n_out =1, add:  X = Activation('sigmoid')(X)
-    # if n_out > 1, add:  X = Activation('softmax')(X)
+    # for classification, if n_out =1, add:  
+    # X = Activation('sigmoid')(X)
+
+    # if n_out > 1, add:  
+    # X = Activation('softmax')(X)
     
     # Create model
     model = Model(inputs = X_input, outputs = X, name='ResNet50_1d')
